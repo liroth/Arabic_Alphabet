@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arabic Alphabet</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main class="container py-5">
+      <header class="mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div>
+            <h1 class="display-5" data-i18n="title">Arabic Alphabet Trainer</h1>
+            <p class="text-muted mb-0" data-i18n="subtitle">
+              Memorize Arabic letters and their European equivalents.
+            </p>
+          </div>
+          <div>
+            <div
+              class="form-label small text-muted mb-1"
+              data-i18n="siteLanguageLabel"
+            >
+              Site language
+            </div>
+            <div class="btn-group" role="group" aria-label="Site language">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                data-lang="en"
+                aria-label="English"
+              >
+                <svg
+                  class="me-1"
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  aria-hidden="true"
+                >
+                  <rect width="18" height="12" fill="#012169" />
+                  <path
+                    d="M0 0 L18 12 M18 0 L0 12"
+                    stroke="#FFFFFF"
+                    stroke-width="2.5"
+                  />
+                  <path
+                    d="M0 0 L18 12 M18 0 L0 12"
+                    stroke="#C8102E"
+                    stroke-width="1.4"
+                  />
+                  <rect x="7" width="4" height="12" fill="#FFFFFF" />
+                  <rect y="4" width="18" height="4" fill="#FFFFFF" />
+                  <rect x="7.6" width="2.8" height="12" fill="#C8102E" />
+                  <rect y="4.6" width="18" height="2.8" fill="#C8102E" />
+                </svg>
+                EN
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                data-lang="de"
+                aria-label="German"
+              >
+                <svg
+                  class="me-1"
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  aria-hidden="true"
+                >
+                  <rect width="18" height="4" y="0" fill="#000000" />
+                  <rect width="18" height="4" y="4" fill="#DD0000" />
+                  <rect width="18" height="4" y="8" fill="#FFCE00" />
+                </svg>
+                DE
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                data-lang="ar"
+                aria-label="Arabic"
+              >
+                <svg
+                  class="me-1"
+                  width="18"
+                  height="12"
+                  viewBox="0 0 18 12"
+                  aria-hidden="true"
+                >
+                  <rect width="18" height="4" y="0" fill="#CE1126" />
+                  <rect width="18" height="4" y="4" fill="#FFFFFF" />
+                  <rect width="18" height="4" y="8" fill="#000000" />
+                  <circle cx="9" cy="6" r="1.2" fill="#C09300" />
+                </svg>
+                AR
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="card shadow-sm mb-4">
+        <div class="card-body">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-3">
+              <label for="mode" class="form-label" data-i18n="labelMode">
+                Language mode
+              </label>
+              <select id="mode" class="form-select">
+                <option value="arabic" data-i18n="optionModeArabic">
+                  Arabic only
+                </option>
+                <option value="european" data-i18n="optionModeEuropean">
+                  European only
+                </option>
+                <option value="mixed" selected data-i18n="optionModeMixed">
+                  Mixed
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label
+                for="difficulty"
+                class="form-label"
+                data-i18n="labelDifficulty"
+              >
+                Difficulty
+              </label>
+              <select id="difficulty" class="form-select">
+                <option value="easy" selected data-i18n="optionDifficultyEasy">
+                  Easy
+                </option>
+                <option value="hard" data-i18n="optionDifficultyHard">
+                  Hard (common confusions)
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label
+                for="form-mode"
+                class="form-label"
+                data-i18n="labelFormMode"
+              >
+                Arabic letter format
+              </label>
+              <select id="form-mode" class="form-select">
+                <option value="isolated" selected data-i18n="optionFormIsolated">
+                  Isolated only
+                </option>
+                <option value="mixed" data-i18n="optionFormMixed">
+                  Mixed forms
+                </option>
+                <option value="numbers" data-i18n="optionFormNumbers">
+                  Numbers only
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3 d-grid">
+              <button id="new-round" class="btn btn-primary" data-i18n="buttonNewLetter">
+                New letter
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card shadow-sm">
+        <div class="card-body text-center">
+          <div class="display-2 fw-semibold mb-3" id="prompt-letter">?</div>
+          <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+            <button
+              type="button"
+              id="play-sound"
+              class="btn btn-sm btn-outline-secondary"
+              data-i18n="buttonPlaySound"
+            >
+              Play sound
+            </button>
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="sound-toggle"
+                checked
+              />
+              <label
+                class="form-check-label"
+                for="sound-toggle"
+                data-i18n="labelSoundToggle"
+              >
+                Sound on
+              </label>
+            </div>
+          </div>
+          <div
+            id="arabic-voice-warning"
+            class="alert alert-warning py-2 small d-none"
+            role="status"
+          >
+            <span data-i18n="warningNoArabicVoice">
+              No Arabic voice detected. Install an Arabic voice in your system
+              speech settings, then reload.
+            </span>
+            <a href="voice_help.html" class="ms-2" data-i18n="warningLink">
+              How to install
+            </a>
+          </div>
+          <p class="text-muted" data-i18n="promptPick">Pick the correct match:</p>
+
+          <div class="row g-2 justify-content-center" id="answers">
+            <div class="col-6 col-md-3 d-grid">
+              <button class="btn btn-outline-secondary">A</button>
+            </div>
+            <div class="col-6 col-md-3 d-grid">
+              <button class="btn btn-outline-secondary">B</button>
+            </div>
+            <div class="col-6 col-md-3 d-grid">
+              <button class="btn btn-outline-secondary">C</button>
+            </div>
+            <div class="col-6 col-md-3 d-grid">
+              <button class="btn btn-outline-secondary">D</button>
+            </div>
+          </div>
+
+          <div class="mt-3" id="feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="card shadow-sm mt-4">
+        <div class="card-body">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+            <h2 class="h6 text-uppercase text-muted mb-0" data-i18n="progressTitle">
+              Progress
+            </h2>
+            <button
+              id="reset-stats"
+              class="btn btn-sm btn-outline-secondary"
+              type="button"
+              data-i18n="resetStats"
+            >
+              Reset stats
+            </button>
+          </div>
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statTotal">Total shown</div>
+              <div class="fs-5 fw-semibold" id="stat-total">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statArabic">Arabic shown</div>
+              <div class="fs-5 fw-semibold" id="stat-arabic">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statEuropean">
+                European shown
+              </div>
+              <div class="fs-5 fw-semibold" id="stat-european">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statStreak">Streak</div>
+              <div class="fs-5 fw-semibold" id="stat-streak">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statBestStreak">
+                Best streak
+              </div>
+              <div class="fs-5 fw-semibold" id="stat-best-streak">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statHits">Hits</div>
+              <div class="fs-5 fw-semibold" id="stat-hits">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statFails">Fails</div>
+              <div class="fs-5 fw-semibold" id="stat-fails">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/arabic_alphabet.js"></script>
+  </body>
+</html>
