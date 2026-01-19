@@ -21,6 +21,13 @@ const letters = [
   { arabic: "ف", latin: "f", forms: ["ﻑ", "ﻓ", "ﻔ", "ﻒ"] },
   { arabic: "ق", latin: "q", forms: ["ﻕ", "ﻗ", "ﻘ", "ﻖ"] },
   { arabic: "ك", latin: "k", forms: ["ﻙ", "ﻛ", "ﻜ", "ﻚ"] },
+  { arabic: "\u0644", latin: "l", forms: ["\uFEDD", "\uFEDE", "\uFEDF", "\uFEE0"] },
+  { arabic: "\u0645", latin: "m", forms: ["\uFEE1", "\uFEE2", "\uFEE3", "\uFEE4"] },
+  { arabic: "\u0646", latin: "n", forms: ["\uFEE5", "\uFEE6", "\uFEE7", "\uFEE8"] },
+  { arabic: "\u0647", latin: "h'", forms: ["\uFEE9", "\uFEEA", "\uFEEB", "\uFEEC"] },
+  { arabic: "\u0648", latin: "w", forms: ["\uFEED", "\uFEEE"] },
+  { arabic: "\u064A", latin: "y", forms: ["\uFEEF", "\uFEF0", "\uFEF3", "\uFEF4"] },
+  { arabic: "\u0621", latin: "hamza", forms: ["\uFE80"] },
 ];
 
 const numberItems = [
@@ -65,121 +72,10 @@ const mixedFormConfusionGroups = [
   [7, 8, 9, 10], // short stroke letters (dal/dhal/ra/zay)
 ];
 
-const translations = {
-  en: {
-    title: "Arabic Alphabet Trainer",
-    subtitle: "Memorize Arabic letters and their European equivalents.",
-    siteLanguageLabel: "Site language",
-    langEnglish: "English",
-    langGerman: "German",
-    langArabic: "Arabic",
-    labelMode: "Language mode",
-    labelDifficulty: "Difficulty",
-    labelFormMode: "Arabic letter format",
-    optionModeArabic: "Arabic only",
-    optionModeEuropean: "European only",
-    optionModeMixed: "Mixed",
-    optionDifficultyEasy: "Easy",
-    optionDifficultyHard: "Hard (common confusions)",
-    optionFormIsolated: "Isolated only",
-    optionFormMixed: "Mixed forms",
-    optionFormNumbers: "Numbers only",
-    buttonNewLetter: "New letter",
-    buttonPlaySound: "Play sound",
-    labelSoundToggle: "Sound on",
-    promptPick: "Pick the correct match:",
-    progressTitle: "Progress",
-    resetStats: "Reset stats",
-    statTotal: "Total shown",
-    statArabic: "Arabic shown",
-    statEuropean: "European shown",
-    statStreak: "Streak",
-    statBestStreak: "Best streak",
-    statHits: "Hits",
-    statFails: "Fails",
-    feedbackCorrect: "Correct! Great job.",
-    feedbackWrong: "Not quite. Try another.",
-    warningNoArabicVoice:
-      "No Arabic voice detected. Install an Arabic voice in your system speech settings, then reload.",
-    warningLink: "How to install",
-  },
-  de: {
-    title: "Arabisches Alphabet",
-    subtitle: "Lerne arabische Buchstaben und ihre europaeischen Entsprechungen.",
-    siteLanguageLabel: "Seitensprache",
-    langEnglish: "Englisch",
-    langGerman: "Deutsch",
-    langArabic: "Arabisch",
-    labelMode: "Sprachmodus",
-    labelDifficulty: "Schwierigkeit",
-    labelFormMode: "Arabische Buchstabenform",
-    optionModeArabic: "Nur Arabisch",
-    optionModeEuropean: "Nur Europaeisch",
-    optionModeMixed: "Gemischt",
-    optionDifficultyEasy: "Einfach",
-    optionDifficultyHard: "Schwer (haeufige Verwechslungen)",
-    optionFormIsolated: "Nur isoliert",
-    optionFormMixed: "Gemischte Formen",
-    optionFormNumbers: "Nur Zahlen",
-    buttonNewLetter: "Neuer Buchstabe",
-    buttonPlaySound: "Ton abspielen",
-    labelSoundToggle: "Ton an",
-    promptPick: "Waehle die richtige Zuordnung:",
-    progressTitle: "Fortschritt",
-    resetStats: "Statistik zuruecksetzen",
-    statTotal: "Gesamt gezeigt",
-    statArabic: "Arabisch gezeigt",
-    statEuropean: "Europaeisch gezeigt",
-    statStreak: "Serie",
-    statBestStreak: "Beste Serie",
-    statHits: "Treffer",
-    statFails: "Fehler",
-    feedbackCorrect: "Richtig! Sehr gut.",
-    feedbackWrong: "Nicht ganz. Versuch es noch einmal.",
-    warningNoArabicVoice:
-      "Kein arabischer Sprachsatz gefunden. Installiere eine arabische Stimme in den System-Sprach-Einstellungen und lade neu.",
-    warningLink: "So installierst du es",
-  },
-  ar: {
-    title: "تدريب الحروف العربية",
-    subtitle: "احفظ الحروف العربية ومقابلاتها الأوروبية.",
-    siteLanguageLabel: "لغة الموقع",
-    langEnglish: "الإنجليزية",
-    langGerman: "الألمانية",
-    langArabic: "العربية",
-    labelMode: "وضع اللغة",
-    labelDifficulty: "الصعوبة",
-    labelFormMode: "شكل الحرف العربي",
-    optionModeArabic: "عربي فقط",
-    optionModeEuropean: "أوروبي فقط",
-    optionModeMixed: "مختلط",
-    optionDifficultyEasy: "سهل",
-    optionDifficultyHard: "صعب (التباسات شائعة)",
-    optionFormIsolated: "معزول فقط",
-    optionFormMixed: "أشكال مختلطة",
-    buttonNewLetter: "حرف جديد",
-    promptPick: "اختر المطابقة الصحيحة:",
-    progressTitle: "التقدم",
-    resetStats: "إعادة الضبط",
-    statTotal: "المجموع",
-    statArabic: "العربية المعروضة",
-    statEuropean: "الأوروبية المعروضة",
-    statStreak: "سلسلة صحيحة",
-    statBestStreak: "أفضل سلسلة",
-    statHits: "إجابات صحيحة",
-    statFails: "إجابات خاطئة",
-    feedbackCorrect: "صحيح! أحسنت.",
-    feedbackWrong: "غير صحيح. حاول مرة أخرى.",
-    warningNoArabicVoice:
-      "لا يوجد صوت عربي. قم بتثبيت صوت عربي من إعدادات تحويل النص إلى كلام في النظام ثم أعد التحميل.",
-    warningLink: "طريقة التثبيت",
-  },
-};
 
 const modeSelect = document.getElementById("mode");
 const difficultySelect = document.getElementById("difficulty");
 const formModeSelect = document.getElementById("form-mode");
-const languageButtons = document.querySelectorAll("[data-lang]");
 const newRoundBtn = document.getElementById("new-round");
 const promptEl = document.getElementById("prompt-letter");
 const playSoundBtn = document.getElementById("play-sound");
@@ -200,8 +96,8 @@ const statFails = document.getElementById("stat-fails");
 const resetStatsBtn = document.getElementById("reset-stats");
 
 const statsStorageKey = "arabicAlphabetStats";
-const languageStorageKey = "arabicAlphabetLanguage";
 const soundStorageKey = "arabicAlphabetSoundEnabled";
+const analyticsStorageKey = "arabicAlphabetAnalytics";
 
 const stats = {
   totalShown: 0,
@@ -213,7 +109,14 @@ const stats = {
   bestStreak: 0,
 };
 
-let currentLanguage = "en";
+const analytics = loadAnalytics();
+const i18n = createI18n(pageTranslations, {
+  storageKey: "arabicAlphabetLanguage",
+  onApply: () => {
+    feedbackEl.textContent = "";
+    feedbackEl.className = "mt-3";
+  },
+});
 let lastPromptText = "";
 let lastPromptLang = "en";
 let lastPromptLetter = null;
@@ -221,38 +124,7 @@ let lastPromptScript = "arabic";
 let lastAnswerScript = "latin";
 let lastFormMode = "isolated";
 let hasArabicVoice = false;
-
-function normalizeLanguage(code) {
-  if (!code) {
-    return null;
-  }
-  const normalized = code.toLowerCase();
-  if (normalized.startsWith("ar")) {
-    return "ar";
-  }
-  if (normalized.startsWith("de")) {
-    return "de";
-  }
-  if (normalized.startsWith("en")) {
-    return "en";
-  }
-  return null;
-}
-
-function detectPreferredLanguage() {
-  const stored = localStorage.getItem(languageStorageKey);
-  if (stored && translations[stored]) {
-    return stored;
-  }
-  const languages = navigator.languages || [];
-  for (const language of languages) {
-    const normalized = normalizeLanguage(language);
-    if (normalized) {
-      return normalized;
-    }
-  }
-  return normalizeLanguage(navigator.language) || "en";
-}
+let currentRoundMeta = null;
 
 function shuffle(list) {
   const copy = [...list];
@@ -263,6 +135,158 @@ function shuffle(list) {
   return copy;
 }
 
+function createBucket() {
+  return { total: 0, hits: 0, fails: 0 };
+}
+
+function ensureBucket(container, key) {
+  if (!container[key]) {
+    container[key] = createBucket();
+  }
+  return container[key];
+}
+
+function comboKey(mode, difficulty, formMode) {
+  return `${mode}|${difficulty}|${formMode}`;
+}
+
+function getLetterOrder(letter) {
+  const letterIndex = letters.indexOf(letter);
+  if (letterIndex !== -1) {
+    return letterIndex;
+  }
+  const numberIndex = numberItems.indexOf(letter);
+  if (numberIndex !== -1) {
+    return 100 + numberIndex;
+  }
+  return 999;
+}
+
+function createAnalytics() {
+  return {
+    total: 0,
+    hits: 0,
+    fails: 0,
+    byMode: {},
+    byDifficulty: {},
+    byForm: {},
+    byCombo: {},
+    dailyByCombo: {},
+    mistakesByCombo: {},
+    perLetter: {},
+  };
+}
+
+function loadAnalytics() {
+  const stored = localStorage.getItem(analyticsStorageKey);
+  if (!stored) {
+    return createAnalytics();
+  }
+  try {
+    const parsed = JSON.parse(stored);
+    const base = createAnalytics();
+    return {
+      ...base,
+      ...parsed,
+      byMode: parsed.byMode || {},
+      byDifficulty: parsed.byDifficulty || {},
+      byForm: parsed.byForm || {},
+      byCombo: parsed.byCombo || {},
+      dailyByCombo: parsed.dailyByCombo || {},
+      mistakesByCombo: parsed.mistakesByCombo || {},
+      perLetter: parsed.perLetter || {},
+    };
+  } catch (error) {
+    localStorage.removeItem(analyticsStorageKey);
+    return createAnalytics();
+  }
+}
+
+function saveAnalytics() {
+  localStorage.setItem(analyticsStorageKey, JSON.stringify(analytics));
+}
+
+function updateAnalytics(isCorrect) {
+  if (!currentRoundMeta) {
+    return;
+  }
+  const { mode, difficulty, formMode, correct } = currentRoundMeta;
+  const key = comboKey(mode, difficulty, formMode);
+  const bucket = ensureBucket(analytics.byCombo, key);
+  bucket.total += 1;
+  if (isCorrect) {
+    bucket.hits += 1;
+  } else {
+    bucket.fails += 1;
+  }
+
+  analytics.total += 1;
+  if (isCorrect) {
+    analytics.hits += 1;
+  } else {
+    analytics.fails += 1;
+  }
+
+  const modeBucket = ensureBucket(analytics.byMode, mode);
+  const difficultyBucket = ensureBucket(analytics.byDifficulty, difficulty);
+  const formBucket = ensureBucket(analytics.byForm, formMode);
+  [modeBucket, difficultyBucket, formBucket].forEach((group) => {
+    group.total += 1;
+    if (isCorrect) {
+      group.hits += 1;
+    } else {
+      group.fails += 1;
+    }
+  });
+
+  const dateKey = new Date().toISOString().slice(0, 10);
+  if (!analytics.dailyByCombo[dateKey]) {
+    analytics.dailyByCombo[dateKey] = {};
+  }
+  const dailyBucket = ensureBucket(analytics.dailyByCombo[dateKey], key);
+  dailyBucket.total += 1;
+  if (isCorrect) {
+    dailyBucket.hits += 1;
+  } else {
+    dailyBucket.fails += 1;
+  }
+
+  if (!isCorrect && correct) {
+    const mistakes = analytics.mistakesByCombo[key] || {};
+    const letterKey = correct.latin || correct.arabic;
+    const entry = mistakes[letterKey] || {
+      arabic: correct.arabic,
+      latin: correct.latin,
+      count: 0,
+    };
+    entry.count += 1;
+    mistakes[letterKey] = entry;
+    analytics.mistakesByCombo[key] = mistakes;
+  }
+
+  if (correct) {
+    const letterKey = correct.latin || correct.arabic;
+    if (!analytics.perLetter[letterKey]) {
+      analytics.perLetter[letterKey] = {
+        arabic: correct.arabic,
+        latin: correct.latin,
+        total: 0,
+        hits: 0,
+        fails: 0,
+        order: getLetterOrder(correct),
+      };
+    }
+    const letterStats = analytics.perLetter[letterKey];
+    letterStats.total += 1;
+    if (isCorrect) {
+      letterStats.hits += 1;
+    } else {
+      letterStats.fails += 1;
+    }
+  }
+
+  saveAnalytics();
+}
 function pickRandomItem(list) {
   return list[Math.floor(Math.random() * list.length)];
 }
@@ -271,52 +295,53 @@ function getActiveItems(formMode) {
   return formMode === "numbers" ? numberItems : letters;
 }
 
+function getLetterKey(item) {
+  return item.latin || item.arabic;
+}
+
+function getPerLetterStats(item) {
+  const key = getLetterKey(item);
+  return analytics.perLetter && analytics.perLetter[key]
+    ? analytics.perLetter[key]
+    : { total: 0, fails: 0 };
+}
+
+function pickWeighted(items, weights) {
+  const totalWeight = weights.reduce((sum, value) => sum + value, 0);
+  if (totalWeight <= 0) {
+    return pickRandomLetter(items);
+  }
+  let target = Math.random() * totalWeight;
+  for (let i = 0; i < items.length; i += 1) {
+    target -= weights[i];
+    if (target <= 0) {
+      return items[i];
+    }
+  }
+  return items[items.length - 1];
+}
+
+function pickFocusedLetter(items) {
+  const statsList = items.map((item) => getPerLetterStats(item));
+  const maxTotal = Math.max(0, ...statsList.map((entry) => entry.total || 0));
+  const weights = statsList.map((entry) => {
+    const total = entry.total || 0;
+    const fails = entry.fails || 0;
+    const lowExposureBoost = (maxTotal - total) * 0.5;
+    return 1 + fails * 2 + lowExposureBoost;
+  });
+  return pickWeighted(items, weights);
+}
+
 function pickRandomLetter(items) {
   return items[Math.floor(Math.random() * items.length)];
-}
-
-function t(key) {
-  const pack = translations[currentLanguage] || translations.en;
-  return pack[key] || translations.en[key] || key;
-}
-
-function applyLanguage(language) {
-  currentLanguage = translations[language] ? language : "en";
-  document.documentElement.lang = currentLanguage;
-  document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.dataset.i18n;
-    if (key) {
-      element.textContent = t(key);
-    }
-  });
-  feedbackEl.textContent = "";
-  feedbackEl.className = "mt-3";
-  localStorage.setItem(languageStorageKey, currentLanguage);
-
-  languageButtons.forEach((button) => {
-    const isActive = button.dataset.lang === currentLanguage;
-    button.classList.toggle("btn-primary", isActive);
-    button.classList.toggle("btn-outline-secondary", !isActive);
-  });
-
-  if (arabicVoiceWarning) {
-    arabicVoiceWarning
-      .querySelectorAll("[data-i18n]")
-      .forEach((element) => {
-        const key = element.dataset.i18n;
-        if (key) {
-          element.textContent = t(key);
-        }
-      });
-  }
 }
 
 function getSpeechLanguage(promptScript) {
   if (promptScript === "arabic") {
     return "ar";
   }
-  if (currentLanguage === "de") {
+  if (i18n.getCurrentLanguage() === "de") {
     return "de";
   }
   return "en";
@@ -346,6 +371,13 @@ function getArabicLetterName(letter) {
     f: "fa",
     q: "qaf",
     k: "kaf",
+    l: "lam",
+    m: "mim",
+    n: "nun",
+    "h'": "ha",
+    w: "waw",
+    y: "ya",
+    hamza: "hamza",
   };
   return names[letter.latin] || letter.latin;
 }
@@ -360,7 +392,7 @@ function getSpeechPayload(letter, promptScript, formMode) {
     }
     return {
       text: getArabicLetterName(letter),
-      lang: currentLanguage === "de" ? "de" : "en",
+      lang: i18n.getCurrentLanguage() === "de" ? "de" : "en",
     };
   }
   return {
@@ -532,6 +564,7 @@ function resetStats() {
   stats.streak = 0;
   stats.bestStreak = 0;
   updateStats();
+  localStorage.removeItem(analyticsStorageKey);
 }
 
 function renderRound() {
@@ -543,7 +576,11 @@ function renderRound() {
   const difficulty = difficultySelect.value;
   const formMode = formModeSelect.value;
   const activeItems = getActiveItems(formMode);
-  const correct = pickRandomLetter(activeItems);
+  const correct =
+    difficulty === "focus"
+      ? pickFocusedLetter(activeItems)
+      : pickRandomLetter(activeItems);
+  currentRoundMeta = { mode, difficulty, formMode, correct };
 
   let promptScript = "arabic";
   let answerScript = "latin";
@@ -592,7 +629,7 @@ function renderRound() {
 
     button.addEventListener("click", () => {
       const isCorrect = button.dataset.isCorrect === "true";
-      feedbackEl.textContent = isCorrect ? t("feedbackCorrect") : t("feedbackWrong");
+      feedbackEl.textContent = isCorrect ? i18n.t("feedbackCorrect") : i18n.t("feedbackWrong");
       feedbackEl.className = isCorrect
         ? "mt-3 text-success fw-semibold"
         : "mt-3 text-danger fw-semibold";
@@ -619,6 +656,7 @@ function renderRound() {
         }
       }
       updateStats();
+      updateAnalytics(isCorrect);
 
       if (isCorrect) {
         playAnswerAudio((didSpeak) => {
@@ -647,15 +685,7 @@ difficultySelect.addEventListener("change", renderRound);
 formModeSelect.addEventListener("change", renderRound);
 resetStatsBtn.addEventListener("click", resetStats);
 
-if (languageButtons.length > 0) {
-  languageButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      applyLanguage(button.dataset.lang);
-    });
-  });
-  const preferred = detectPreferredLanguage();
-  applyLanguage(preferred);
-}
+i18n.initLanguageButtons();
 
 function updateArabicVoiceStatus() {
   if (!window.speechSynthesis) {
@@ -668,6 +698,13 @@ function updateArabicVoiceStatus() {
   }
   if (arabicVoiceWarning) {
     arabicVoiceWarning.classList.toggle("d-none", hasArabicVoice);
+  }
+  if (playSoundBtn) {
+    playSoundBtn.disabled = !hasArabicVoice;
+  }
+  if (!hasArabicVoice && soundToggle) {
+    soundToggle.checked = false;
+    localStorage.setItem(soundStorageKey, "false");
   }
 }
 
@@ -724,3 +761,6 @@ document.addEventListener("keydown", (event) => {
 
 loadStats();
 renderRound();
+
+
+

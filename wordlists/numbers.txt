@@ -1,0 +1,38 @@
+one|eins|wahid|واحد
+two|zwei|ithnan|اثنان
+three|drei|thalatha|ثلاثة
+four|vier|arba'a|أربعة
+five|fuenf|khamsa|خمسة
+six|sechs|sitta|ستة
+seven|sieben|sab'a|سبعة
+eight|acht|thamaniya|ثمانية
+nine|neun|tis'a|تسعة
+ten|zehn|ashara|عشرة
+eleven|elf|ahada ashar|أحد عشر
+twelve|zwoelf|ithna ashar|اثنا عشر
+thirteen|dreizehn|thalathata ashar|ثلاثة عشر
+fourteen|vierzehn|arba'ata ashar|أربعة عشر
+fifteen|fuenfzehn|khamsata ashar|خمسة عشر
+sixteen|sechzehn|sittata ashar|ستة عشر
+seventeen|siebzehn|sab'ata ashar|سبعة عشر
+eighteen|achtzehn|thamaniyata ashar|ثمانية عشر
+nineteen|neunzehn|tis'ata ashar|تسعة عشر
+twenty|zwanzig|ishrun|عشرون
+twenty-one|einundzwanzig|wahid wa ishrun|واحد وعشرون
+twenty-two|zweiundzwanzig|ithnan wa ishrun|اثنان وعشرون
+twenty-three|dreiundzwanzig|thalatha wa ishrun|ثلاثة وعشرون
+twenty-four|vierundzwanzig|arba'a wa ishrun|أربعة وعشرون
+twenty-five|fuenfundzwanzig|khamsa wa ishrun|خمسة وعشرون
+twenty-six|sechsundzwanzig|sitta wa ishrun|ستة وعشرون
+twenty-seven|siebenundzwanzig|sab'a wa ishrun|سبعة وعشرون
+twenty-eight|achtundzwanzig|thamaniya wa ishrun|ثمانية وعشرون
+twenty-nine|neunundzwanzig|tis'a wa ishrun|تسعة وعشرون
+thirty|dreissig|thalathun|ثلاثون
+forty|vierzig|arba'un|أربعون
+fifty|fuenfzig|khamsun|خمسون
+sixty|sechzig|sittun|ستون
+seventy|siebzig|sab'un|سبعون
+eighty|achtzig|thamanun|ثمانون
+ninety|neunzig|tis'un|تسعون
+one hundred|einhundert|mi'a|مئة
+one thousand|eintausend|alf|ألف

@@ -1,0 +1,25 @@
+hello|hallo|marhaba|مرحبا
+goodbye|tschuss|ma as-salama|مع السلامة
+please|bitte|min fadlak|من فضلك
+thank you|danke|shukran|شكرا
+yes|ja|na'am|نعم
+no|nein|la|لا
+excuse me|entschuldigung|afwan|عفوا
+sorry|es tut mir leid|asif|آسف
+water|wasser|ma|ماء
+food|essen|ta'am|طعام
+house|haus|bayt|بيت
+family|familie|usra|أسرة
+friend|freund|sadiq|صديق
+man|mann|rajul|رجل
+woman|frau|imra'a|امرأة
+boy|junge|walad|ولد
+girl|madchen|bint|بنت
+book|buch|kitab|كتاب
+school|schule|madrasa|مدرسة
+today|heute|al-yawm|اليوم
+tomorrow|morgen|ghadan|غدا
+morning|morgen (frueh)|sabah|صباح
+evening|abend|masa'|مساء
+day|tag|yawm|يوم
+night|nacht|layl|ليل
