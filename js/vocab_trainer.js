@@ -13,6 +13,12 @@ const answerButtons = Array.from(
 );
 const feedbackEl = document.getElementById("answer-feedback");
 const nextCardBtn = document.getElementById("next-card");
+const statTotal = document.getElementById("vocab-stat-total");
+const statHits = document.getElementById("vocab-stat-hits");
+const statFails = document.getElementById("vocab-stat-fails");
+const statStreak = document.getElementById("vocab-stat-streak");
+const statBestStreak = document.getElementById("vocab-stat-best-streak");
+const resetStatsBtn = document.getElementById("reset-vocab-stats");
 
 const i18n = createI18n(pageTranslations, {
   storageKey: "arabicAlphabetLanguage",
@@ -24,6 +30,14 @@ let currentIndex = 0;
 let currentOptions = [];
 let nextCardTimer = null;
 const defaultListName = "basic.txt";
+const statsStorageKey = "arabicVocabStats";
+const stats = {
+  totalShown: 0,
+  hits: 0,
+  fails: 0,
+  streak: 0,
+  bestStreak: 0,
+};
 
 function shuffle(list) {
   const copy = [...list];
@@ -185,7 +199,43 @@ function updateCardState(hasCard) {
   nextCardBtn.disabled = !hasCard;
 }
 
-function renderCard() {
+function updateStats() {
+  if (!statTotal) {
+    return;
+  }
+  statTotal.textContent = stats.totalShown;
+  statHits.textContent = stats.hits;
+  statFails.textContent = stats.fails;
+  statStreak.textContent = stats.streak;
+  statBestStreak.textContent = stats.bestStreak;
+  localStorage.setItem(statsStorageKey, JSON.stringify(stats));
+}
+
+function loadStats() {
+  const stored = localStorage.getItem(statsStorageKey);
+  if (!stored) {
+    updateStats();
+    return;
+  }
+  try {
+    const parsed = JSON.parse(stored);
+    Object.assign(stats, parsed);
+  } catch (error) {
+    localStorage.removeItem(statsStorageKey);
+  }
+  updateStats();
+}
+
+function resetStats() {
+  stats.totalShown = 0;
+  stats.hits = 0;
+  stats.fails = 0;
+  stats.streak = 0;
+  stats.bestStreak = 0;
+  updateStats();
+}
+
+function renderCard(countQuestion = false) {
   if (nextCardTimer) {
     clearTimeout(nextCardTimer);
     nextCardTimer = null;
@@ -199,6 +249,10 @@ function renderCard() {
   const answerLang = answerSelect ? answerSelect.value : "en";
   const correctAnswer = getField(card, answerLang);
   cardFront.textContent = getField(card, promptLang) || "?";
+  if (countQuestion) {
+    stats.totalShown += 1;
+    updateStats();
+  }
 
   const pool = deck.filter(
     (item) => item !== card && getField(item, answerLang) !== correctAnswer
@@ -254,7 +308,7 @@ function startSession() {
 
   deck = shuffle(cards);
   currentIndex = 0;
-  renderCard();
+  renderCard(true);
 }
 
 function handleAnswer(button) {
@@ -283,6 +337,17 @@ function handleAnswer(button) {
     button.classList.remove("btn-outline-secondary");
     button.classList.add("btn-danger");
   }
+  if (isCorrect) {
+    stats.hits += 1;
+    stats.streak += 1;
+    if (stats.streak > stats.bestStreak) {
+      stats.bestStreak = stats.streak;
+    }
+  } else {
+    stats.fails += 1;
+    stats.streak = 0;
+  }
+  updateStats();
   nextCardBtn.disabled = true;
   if (nextCardTimer) {
     clearTimeout(nextCardTimer);
@@ -299,7 +364,7 @@ function nextCard() {
     return;
   }
   currentIndex = (currentIndex + 1) % deck.length;
-  renderCard();
+  renderCard(true);
 }
 
 if (startBtn) {
@@ -336,19 +401,25 @@ if (viewListBtn) {
 
 if (promptSelect) {
   promptSelect.addEventListener("change", () => {
-    renderCard();
+    renderCard(false);
   });
 }
 
 if (answerSelect) {
   answerSelect.addEventListener("change", () => {
-    renderCard();
+    renderCard(false);
   });
 }
 
 if (nextCardBtn) {
   nextCardBtn.addEventListener("click", () => {
     nextCard();
+  });
+}
+
+if (resetStatsBtn) {
+  resetStatsBtn.addEventListener("click", () => {
+    resetStats();
   });
 }
 
@@ -360,7 +431,37 @@ answerButtons.forEach((button) => {
   });
 });
 
+document.addEventListener("keydown", (event) => {
+  const target = event.target;
+  if (
+    target &&
+    (target.tagName === "INPUT" ||
+      target.tagName === "TEXTAREA" ||
+      target.tagName === "SELECT" ||
+      target.isContentEditable)
+  ) {
+    return;
+  }
+  let index = null;
+  if (event.key >= "1" && event.key <= "4") {
+    index = Number(event.key) - 1;
+  } else if (event.code.startsWith("Numpad")) {
+    const codeValue = event.code.replace("Numpad", "");
+    if (codeValue >= "1" && codeValue <= "4") {
+      index = Number(codeValue) - 1;
+    }
+  }
+  if (index === null) {
+    return;
+  }
+  const button = answerButtons[index];
+  if (button && !button.disabled) {
+    button.click();
+  }
+});
+
 i18n.initLanguageButtons();
 applyDefaultLanguages();
 loadLists();
 updateCardState(false);
+loadStats();

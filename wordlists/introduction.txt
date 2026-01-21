@@ -1,0 +1,40 @@
+﻿my name is|mein name ist|ismi|اسمي
+what is your name|wie heisst du|ma ismuk|ما اسمك
+nice to meet you|schoen dich kennenzulernen|tasharrafna|تشرفنا
+how are you|wie geht es dir|kayfa haluk|كيف حالك
+I am fine|mir geht es gut|ana bikhayr|أنا بخير
+where are you from|woher kommst du|min ayn anta|من أين أنت
+I am from|ich komme aus|ana min|أنا من
+I live in|ich wohne in|askun fi|أسكن في
+where do you live|wo wohnst du|ayn taskun|أين تسكن
+I work in|ich arbeite in|a'mal fi|أعمل في
+I study|ich studiere|adrus|أدرس
+I am a student|ich bin student|ana talib|أنا طالب
+I am a teacher|ich bin lehrer|ana mu'allim|أنا معلم
+do you speak English|sprichst du englisch|hal tatakallam al-ingliziyya|هل تتكلم الإنجليزية
+do you speak German|sprichst du deutsch|hal tatakallam al-almaniyya|هل تتكلم الألمانية
+I speak a little|ich spreche ein bisschen|atakallam qalilan|أتكلم قليلا
+you're welcome|bitte sehr|afwan|عفوا
+welcome|willkommen|ahlan wa sahlan|أهلا وسهلا
+nice to see you|schoen dich zu sehen|sa'id biliqa'ik|سعيد بلقائك
+this is|das ist|hadha|هذا
+may I introduce|darf ich vorstellen|hal yumkinuni an u'arrif|هل يمكنني أن أعرّف
+colleague|kollege|zamil|زميل
+neighbor|nachbar|jar|جار
+partner|partner|sharik|شريك
+friendship|freundschaft|sadaqa|صداقة
+family name|familienname|ism al-a'ila|اسم العائلة
+first name|vorname|ism al-awwal|الاسم الأول
+how old are you|wie alt bist du|kam umruk|كم عمرك
+I am __ years old|ich bin __ jahre alt|umri __ sana|عمري __ سنة
+aunt|tante|amma|عمة
+uncle|onkel|amm|عم
+parents|eltern|walidan|والدان
+cousin|cousin|ibn amm|ابن عم
+grandfather|grossvater|jadd|جد
+fiance|verlobter|khatib|خطيب
+fiancee|verlobte|khatiba|خطيبة
+single|ledig|a'azab|أعزب
+married|verheiratet|mutazawwij|متزوج
+relative|verwandter|qarib|قريب
+grandmother|grossmutter|jadda|جدة

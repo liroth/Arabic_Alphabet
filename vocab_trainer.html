@@ -320,6 +320,48 @@
           </div>
         </div>
       </section>
+
+      <section class="card shadow-sm mt-4">
+        <div class="card-body">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+            <h2 class="h6 text-uppercase text-muted mb-0" data-i18n="progressTitle">
+              Progress
+            </h2>
+            <button
+              id="reset-vocab-stats"
+              class="btn btn-sm btn-outline-secondary"
+              type="button"
+              data-i18n="resetStats"
+            >
+              Reset stats
+            </button>
+          </div>
+          <div class="row g-3">
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statTotal">Total shown</div>
+              <div class="fs-5 fw-semibold" id="vocab-stat-total">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statHits">Hits</div>
+              <div class="fs-5 fw-semibold" id="vocab-stat-hits">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statFails">Fails</div>
+              <div class="fs-5 fw-semibold" id="vocab-stat-fails">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statStreak">Streak</div>
+              <div class="fs-5 fw-semibold" id="vocab-stat-streak">0</div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="small text-muted" data-i18n="statBestStreak">
+                Best streak
+              </div>
+              <div class="fs-5 fw-semibold" id="vocab-stat-best-streak">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script
